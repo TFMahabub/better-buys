@@ -3,7 +3,7 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  background-color: antiquewhite;
+  background-color: var(--primary-color);
   padding: .8rem 1.5rem;
 }
 .navbar li{
@@ -12,8 +12,8 @@
 }
 .logo{
   text-decoration: none;
-  color: black;
-  font-weight: bold;
+  color: var(--white-color);
+  font-weight: semibold;
   font-size: 1.5rem;
 }
 #toggler, .navbar label{
@@ -21,6 +21,7 @@
 }
 .hambarger{
   font-size: 2rem;
+  color: var(--white-color);
 }
 .list{
   list-style: none;
@@ -28,9 +29,9 @@
   gap: 1rem;
 }
 .list li{
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 500;
-  color: blueviolet;
+  color: var(--white-color);
 }
 
 @media screen and (max-width: 600px) {
