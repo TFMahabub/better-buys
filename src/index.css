@@ -1,3 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 
 
@@ -31,7 +34,7 @@ html{
 --primary-color-hover: #fb6f92;
 --text-color: #333;
 --text-color-light: #888682;
---border-color: #484848;
+--border-color: #c0c0c0;
 --white-color: #FFF;
 --section-bg: #2C3034;
 
@@ -73,14 +76,11 @@ body{
 }
 
 /* Reusuable CSS */
-.section{
-  padding: 7rem 2rem;
-}
+
 .container{
   max-width: 1420px;
   width: 100%;
   margin: 0 auto;
-  padding: 0 3rem;
 }
 .flex{
   display: flex;

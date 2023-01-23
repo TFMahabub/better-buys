@@ -1,10 +1,13 @@
+.navSection{
+  background-color: var(--primary-color);
+}
 .navbar{
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  background-color: var(--primary-color);
   padding: .8rem 1.5rem;
+  
 }
 .navbar li{
   list-style: none;
