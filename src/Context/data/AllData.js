@@ -12,7 +12,15 @@ const AllData = ({ children }) => {
       return data;
     },
   });
-  const dataValues = { productsData };
+  const { data: userData = [] } = useQuery({
+    queryKey: "userData",
+    queryFn: async () => {
+      const res = await fetch("http://localhost:5000/user");
+      const data = await res.json();
+      return data;
+    },
+  });
+  const dataValues = { productsData, userData };
   return (
     <ALLDATACONTEXT.Provider value={dataValues}>
       {children}

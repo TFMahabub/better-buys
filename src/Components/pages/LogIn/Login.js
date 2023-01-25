@@ -1,14 +1,33 @@
-import React from "react";
+import React, { useContext } from "react";
 import { AiFillGoogleCircle } from "react-icons/ai";
 import { BsFacebook, BsTwitter } from "react-icons/bs";
 import { Link } from "react-router-dom";
+import toast from "react-hot-toast";
+import { AUTHENTICATION_PROVIDER } from "../../../Context/authentication/UserAuthentication";
 
 const Login = () => {
+  const { loginUser } = useContext(AUTHENTICATION_PROVIDER);
+
+  const handleOnSubmit = (e) => {
+    e.preventDefault();
+
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    //login user
+    loginUser(email, password)
+      .then((result) => {
+        console.log(result.user);
+        toast.success("login successfull");
+      })
+      .catch((err) => console.log(err));
+  };
   return (
     <section className="bg-white container mx-auto lg:flex justify-center items-center lg:h-[83vh]">
       <div className="min-w-lg border-[3px] border-primary shadow-2xl p-8 rounded-lg mt-16 ">
         <h3 className="text-primary text-center text-2xl font-bold">Log in</h3>
-        <form>
+        <form onSubmit={handleOnSubmit}>
           <div className="mt-2">
             <label htmlFor="" className="text-sm text-gray">
               Email:

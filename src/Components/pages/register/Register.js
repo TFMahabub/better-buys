@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { AiFillGoogleCircle } from "react-icons/ai";
 import { BsFacebook, BsTwitter } from "react-icons/bs";
 import { Link } from "react-router-dom";
+import toast from "react-hot-toast";
+import { AUTHENTICATION_PROVIDER } from "../../../Context/authentication/UserAuthentication";
 
 const Register = () => {
+  const { registerUser, updateUserInfo } = useContext(AUTHENTICATION_PROVIDER);
   const handleOnSubmit = (e) => {
     e.preventDefault();
 
@@ -11,7 +14,23 @@ const Register = () => {
     const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
+
+    //singUp user-
+    registerUser(email, password)
+      .then((result) => {
+        console.log(result.user);
+        updateUserInfo(name)
+          .then((result) => {
+            console.log(result);
+            toast.success("User Create Successfully");
+          })
+          .catch((err) => console.log(err));
+      })
+      .catch((err) => {
+        toast.error("something went wrong");
+      });
   };
+
   return (
     <section className="bg-white container mx-auto lg:flex justify-center items-center lg:h-[83vh]">
       <div className="min-w-lg border-[3px] border-primary shadow-2xl p-8 rounded-lg mt-16 ">
@@ -57,7 +76,7 @@ const Register = () => {
           </div>
           <div className="mt-3">
             <button className="w-full py-2 bg-primary text-white rounded-md">
-              Log In
+              Register
             </button>
           </div>
         </form>

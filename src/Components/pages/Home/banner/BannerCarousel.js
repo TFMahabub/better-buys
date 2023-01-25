@@ -9,7 +9,7 @@ import image4 from "../../../../assets/BannerImages/4.jpg";
 
 const BannerCarousel = () => {
   return (
-    <Carousel>
+    <Carousel showThumbs={false} autoPlay={true} infiniteLoop={true}>
       <div>
         <img src={image1} />
       </div>

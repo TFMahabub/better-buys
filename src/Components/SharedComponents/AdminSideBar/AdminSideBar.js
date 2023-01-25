@@ -1,18 +1,28 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "./AdminSideBar.css";
+import { BsFillArrowLeftCircleFill } from "react-icons/bs";
+import { MdOutlineContentCopy } from "react-icons/md";
+import { FiUser, FiClipboard } from "react-icons/fi";
 
 const AdminSideBar = () => {
   return (
-    <div className="admin_container">
-      <h3>ADMIN PANEL</h3>
-      <ul>
-        <Link to="/all_users">
+    <div className="bg-secondary lg:col-span-1">
+      <div className="flex justify-between">
+        <h3 className="text-lg font-semibold text-textColor">ADMIN PANEL</h3>
+        <BsFillArrowLeftCircleFill className="text-2xl text-primary cursor-pointer" />
+      </div>
+      <ul className="mt-8 space-y-4">
+        <Link to="/admin" className="flex items-center">
+          <FiClipboard className="text-xl" />
           <li>All Users</li>
         </Link>
-        <Link to="/all_users">
+        <Link to="/admin/add_users" className="flex items-center">
+          <FiUser className="text-xl" />
           <li>Add User</li>
         </Link>
-        <Link to="/all_users">
+        <Link to="/admin/add_product" className="flex items-center">
+          <MdOutlineContentCopy className="text-xl" />
           <li>Add Porduct</li>
         </Link>
       </ul>
