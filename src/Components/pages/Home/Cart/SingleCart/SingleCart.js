@@ -18,7 +18,7 @@ const SingleCart = ({ product }) => {
       quantity,
     };
     if (user?.email) {
-      fetch("http://localhost:5000/add_products", {
+      fetch("https://better-buys-server-site.vercel.app/add_products", {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -32,6 +32,8 @@ const SingleCart = ({ product }) => {
           }
         })
         .catch((err) => toast.error("something went wrong"));
+    } else {
+      toast.error("Please login to add a product");
     }
   };
   return (
@@ -44,7 +46,19 @@ const SingleCart = ({ product }) => {
           <div className="quantity_button">
             <button onClick={() => setQuantity((pre) => pre + 1)}>+</button>
             <button>{quantity}</button>
-            <button onClick={() => setQuantity((pre) => pre - 1)}>-</button>
+            <button
+              onClick={() =>
+                setQuantity((pre) => {
+                  if (pre >= 0) {
+                    return pre - 1;
+                  } else {
+                    return toast.error("Quantity must be less than 0");
+                  }
+                })
+              }
+            >
+              -
+            </button>
           </div>
           <button onClick={() => handleBuyOnClick(_id)} className="buy_button">
             Buy

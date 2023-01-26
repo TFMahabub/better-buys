@@ -12,7 +12,7 @@ const AllUsers = () => {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/user")
+    fetch("https://better-buys-server-site.vercel.app/user")
       .then((response) => response.json())
       .then((data) => setUsers(data))
       .catch((error) => console.log(error));

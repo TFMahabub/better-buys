@@ -31,7 +31,7 @@ const UpdateUser = () => {
       selectedPlan,
       selectedStatus,
     };
-    fetch(`http://localhost:5000/user/${params.id}`, {
+    fetch(`https://better-buys-server-site.vercel.app/user/${params.id}`, {
       headers: {
         "content-type": "application/json",
       },

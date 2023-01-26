@@ -35,7 +35,7 @@ const AllUsersTable = ({ chackRef, options, nextRef }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/user/${id}`, {
+        fetch(`https://better-buys-server-site.vercel.app/user/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -150,7 +150,7 @@ const AllUsersTable = ({ chackRef, options, nextRef }) => {
   ];
 
   useEffect(() => {
-    fetch("http://localhost:5000/user")
+    fetch("https://better-buys-server-site.vercel.app/user")
       .then((response) => response.json())
       .then((data) => {
         setUsers(data);

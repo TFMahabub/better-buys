@@ -7,7 +7,7 @@ import { FiUser, FiClipboard } from "react-icons/fi";
 
 const AdminSideBar = () => {
   return (
-    <div className="bg-[#F4F5FA] lg:col-span-1">
+    <div className="bg-[#F4F5FA] lg:col-span-1 print:hidden">
       <div className="flex justify-between">
         <h3 className="text-lg font-semibold text-textColor">ADMIN PANEL</h3>
         <BsFillArrowLeftCircleFill className="text-2xl text-primary cursor-pointer" />

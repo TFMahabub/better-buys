@@ -7,7 +7,9 @@ const AllData = ({ children }) => {
   const { data: productsData = [] } = useQuery({
     queryKey: "productsData",
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/products");
+      const res = await fetch(
+        "https://better-buys-server-site.vercel.app/products"
+      );
       const data = await res.json();
       return data;
     },
@@ -15,7 +17,9 @@ const AllData = ({ children }) => {
   const { data: userData = [] } = useQuery({
     queryKey: "userData",
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/user");
+      const res = await fetch(
+        "https://better-buys-server-site.vercel.app/user"
+      );
       const data = await res.json();
       return data;
     },
@@ -23,7 +27,9 @@ const AllData = ({ children }) => {
   const { data: addedProducts = [] } = useQuery({
     queryKey: "addedProducts",
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/add_products");
+      const res = await fetch(
+        "https://better-buys-server-site.vercel.app/add_products"
+      );
       const data = await res.json();
       return data;
     },
