@@ -50,6 +50,7 @@ const AddUsers = () => {
         .then((data) => {
           if (data.acknowledged) {
             toast.success(`${name} is added successfully`);
+            form.reset();
           }
         })
         .catch((err) => toast.error("something went wrong"));
@@ -70,7 +71,7 @@ const AddUsers = () => {
                     Upload your image
                   </label>
                   <div className="flex items-center justify-center w-full">
-                    <label className="flex flex-col w-full h-32 border-4 border-borderColor border-dashed hover:bg-secondary cursor-pointer">
+                    <label className="flex flex-col w-full h-32 border-4 border-borderColor border-dashed hover:bg-[#F4F5FA] cursor-pointer">
                       <div className="flex flex-col items-center justify-center pt-7">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
