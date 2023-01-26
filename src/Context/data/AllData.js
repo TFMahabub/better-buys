@@ -20,7 +20,15 @@ const AllData = ({ children }) => {
       return data;
     },
   });
-  const dataValues = { productsData, userData };
+  const { data: addedProducts = [] } = useQuery({
+    queryKey: "addedProducts",
+    queryFn: async () => {
+      const res = await fetch("http://localhost:5000/add_products");
+      const data = await res.json();
+      return data;
+    },
+  });
+  const dataValues = { productsData, userData, addedProducts };
   return (
     <ALLDATACONTEXT.Provider value={dataValues}>
       {children}
