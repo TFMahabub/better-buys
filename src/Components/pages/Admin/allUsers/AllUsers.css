@@ -1,0 +1,9 @@
+
+  @media print{    
+    .hiddenCreatedName{
+        display: block !important;
+        /* overflow-x: none !important;;
+        width: 100vw !important;
+        height:  100vh !important;
+        margin-left: 0 !important; */
+    }}

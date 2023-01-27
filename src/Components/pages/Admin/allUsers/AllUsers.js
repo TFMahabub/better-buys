@@ -1,5 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { AUTHENTICATION_PROVIDER } from "../../../../Context/authentication/UserAuthentication";
 import AllUsersTable from "./allUsersTable/AllUsersTable";
+import "./AllUsers.css";
 const nextRef = React.createRef();
 const chackRef = React.createRef();
 const options = {
@@ -9,6 +11,7 @@ const options = {
 };
 
 const AllUsers = () => {
+  const { user } = useContext(AUTHENTICATION_PROVIDER);
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
@@ -21,6 +24,9 @@ const AllUsers = () => {
     <div className="col-span-5">
       <div ref={nextRef} className="mb-10 ">
         <h1 className="text-[#975EFE] text-3xl">All users</h1>
+      </div>
+      <div className="hidden text-xl text-primary hiddenCreatedName">
+        <h4>{`Createed By ${user?.displayName}`}</h4>
       </div>
       {users?.length > 0 ? (
         <AllUsersTable

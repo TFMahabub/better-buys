@@ -24,7 +24,7 @@ const AllData = ({ children }) => {
       return data;
     },
   });
-  const { data: addedProducts = [] } = useQuery({
+  const { data: addedProducts = [], refetch: addedProductRefetch } = useQuery({
     queryKey: "addedProducts",
     queryFn: async () => {
       const res = await fetch(
@@ -34,7 +34,12 @@ const AllData = ({ children }) => {
       return data;
     },
   });
-  const dataValues = { productsData, userData, addedProducts };
+  const dataValues = {
+    productsData,
+    userData,
+    addedProducts,
+    addedProductRefetch,
+  };
   return (
     <ALLDATACONTEXT.Provider value={dataValues}>
       {children}

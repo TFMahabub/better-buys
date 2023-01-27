@@ -1,11 +1,12 @@
 import React, { useContext } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { ALLDATACONTEXT } from "../../../../../Context/data/AllData";
 import toast from "react-hot-toast";
 
 const UpdateUser = () => {
   const { userData } = useContext(ALLDATACONTEXT);
   const params = useParams();
+  const navigate = useNavigate();
 
   //find the selecter user data-
   const thisUserInformations = userData.find(
@@ -45,7 +46,7 @@ const UpdateUser = () => {
         console.log(data);
         if (data.acknowledged) {
           toast.success(`${name} information is updated successfully`);
-          form.reset();
+          navigate("/admin");
         }
       })
       .catch((err) => console.error(err));

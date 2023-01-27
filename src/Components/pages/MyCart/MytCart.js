@@ -20,7 +20,7 @@ const MytCart = () => {
         <tbody>
           {/* <!-- row 1 --> */}
           {addedProducts?.map((product) => (
-            <SingleCart />
+            <SingleCart product={product} />
           ))}
         </tbody>
       </table>

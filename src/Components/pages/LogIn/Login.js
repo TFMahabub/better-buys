@@ -1,12 +1,13 @@
 import React, { useContext } from "react";
 import { AiFillGoogleCircle } from "react-icons/ai";
 import { BsFacebook, BsTwitter } from "react-icons/bs";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import { AUTHENTICATION_PROVIDER } from "../../../Context/authentication/UserAuthentication";
 
 const Login = () => {
   const { loginUser } = useContext(AUTHENTICATION_PROVIDER);
+  const navigate = useNavigate();
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
@@ -20,6 +21,7 @@ const Login = () => {
       .then((result) => {
         console.log(result.user);
         toast.success("login successfull");
+        navigate("/");
       })
       .catch((err) => console.log(err));
   };

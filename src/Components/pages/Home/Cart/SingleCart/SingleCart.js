@@ -47,15 +47,13 @@ const SingleCart = ({ product }) => {
             <button onClick={() => setQuantity((pre) => pre + 1)}>+</button>
             <button>{quantity}</button>
             <button
-              onClick={() =>
-                setQuantity((pre) => {
-                  if (pre >= 0) {
-                    return pre - 1;
-                  } else {
-                    return toast.error("Quantity must be less than 0");
-                  }
-                })
-              }
+              onClick={() => {
+                if (quantity >= 1) {
+                  return setQuantity(quantity - 1);
+                } else {
+                  return toast.error("Quantity must be less than 0");
+                }
+              }}
             >
               -
             </button>
